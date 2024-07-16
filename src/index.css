@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  @apply w-full h-screen flex justify-center items-center;
+}
+
+.total {
+  @apply flex justify-between items-center;
+}
+
+.total p {
+  @apply text-lg font-bold;
+}
+
+.btns {
+  @apply flex justify-end items-center mt-4 space-x-2;
+}
