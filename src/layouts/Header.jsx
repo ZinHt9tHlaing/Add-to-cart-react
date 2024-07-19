@@ -1,10 +1,10 @@
 import Nav from "../components/Nav";
 import Summary from "../components/Summary";
 
-const Header = () => {
+const Header = ({showCartHandler}) => {
   return (
     <div>
-      <Nav />
+      <Nav showCartHandler={showCartHandler} />
       <Summary />
     </div>
   );

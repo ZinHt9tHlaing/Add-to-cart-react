@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ItemContext } from "../../store/ItemContext";
 
-const CartItems = ({ fruit }) => {
+const CartItems = ({ item }) => {
+  const { addItem, removeItem } = useContext(ItemContext);
+
+  const addAmountHandler = () => {
+    addItem({ ...item, amount: 1 });
+  };
+
+  const removeAmountHandler = () => {
+    removeItem(item.id);
+  };
+
   return (
     <div className="flex justify-between py-5 px-5 border-2 border-orange-500 rounded-md my-5 scroll-smooth">
-      <div className=" space-y-3">
-        <h1 className=" text-lg font-semibold">{fruit.name}</h1>
-        <p className=" text-sm w-64 lg:w-96 pe-6 text-gray-500 line-clamp-2">
-          {fruit.description}
-        </p>
+      <div className=" space-y-3 w-64 lg:w-96">
+        <h1 className=" text-lg font-semibold">{item.name}</h1>
+        {/* <p className=" text-sm  pe-6 text-gray-500 line-clamp-2">
+          {item.description}
+        </p> */}
+        <p className=" font-medium">$ {item.price}</p>
       </div>
       <div className="">
-        <p className=" font-medium">$ {fruit.price}</p>
-        <input
-          type="number"
-          className="text-sm text-gray-400 font-bold w-[64px] mt-3 mb-2 ps-2 py-2 block border border-yellow-400 rounded caret-yellow-400 focus-visible:outline-none focus:border-2 focus:border-yellow-400"
-          min={1}
-          max={5}
-        />
+        <p className=" px-[6px] py-1 bg-yellow-400 text-center font-medium text-white rounded-lg">
+          x<span className=" font-semibold">{item.amount}</span>
+        </p>
+        <div className=" flex">
+          <button className="quantity-btn mr-2" onClick={removeAmountHandler}>
+            -
+          </button>
+          <button className="quantity-btn" onClick={addAmountHandler}>
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

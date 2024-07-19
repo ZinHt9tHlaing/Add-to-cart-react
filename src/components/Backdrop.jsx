@@ -1,10 +1,15 @@
 import Cart from "./Cart/Cart";
 
-const Backdrop = () => {
+const Backdrop = ({ ShowCart, hideCartHandler }) => {
   return (
-    <section className="backdrop">
-      <Cart />
-    </section>
+    <>
+      {ShowCart && (
+        <>
+          <section className="backdrop" onClick={hideCartHandler} />
+          <Cart hideCartHandler={hideCartHandler} />
+        </>
+      )}
+    </>
   );
 };
 

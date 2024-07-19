@@ -13,8 +13,17 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 20;
   @apply w-full h-screen flex justify-center items-center;
+}
+
+.cart-box {
+  position: fixed;
+  top: 40vh;
+  left: 50%;
+  z-index: 30;
+  transform: translate(-50%, -50%);
+  @apply w-[90%] lg:w-[50%];
 }
 
 .total {
@@ -27,4 +36,12 @@
 
 .btns {
   @apply flex justify-end items-center mt-4 space-x-2;
+}
+
+.quantity-btn {
+  @apply font-bold mt-5 outline-yellow-400 text-yellow-500 text-sm border border-solid border-yellow-400 py-[2px] px-2 rounded-md hover:bg-yellow-500 hover:text-gray-50 active:scale-95 duration-200;
+}
+
+.overflow-ctr {
+  @apply h-[350px] overflow-y-scroll scroll-smooth;
 }
